@@ -6,6 +6,7 @@ const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
 const cookieParser = require('cookie-parser');
+const hpp = require('hpp');
 const compression = require('compression');
 //App Module - start txpress app
 const app = express();
