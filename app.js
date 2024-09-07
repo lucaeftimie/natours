@@ -8,6 +8,7 @@ const xss = require('xss-clean');
 const cookieParser = require('cookie-parser');
 const hpp = require('hpp');
 const compression = require('compression');
+const cors = require('cors');
 //App Module - start txpress app
 const app = express();
 const path = require('path');
@@ -29,7 +30,20 @@ const bookingRouter = require('./routes/bookingRoutes');
 const viewRouter = require('./routes/viewRoutes');
 
 // 1)GLOBAL  MIDDLEWARES
+//Implement CORS
+app.use(cors());
+//Access-Control-Allow-Origin
+// api.natours.com, front end natours.com
+// app.use(
+//   cors({
+//     origin: 'https://www.natours.com',
+//   })
+// );
 //Serving static files
+
+app.options('*', cors());
+// app.options('/api/v1/tours/:id', cors());
+
 app.use(express.static(path.join(__dirname, 'public'))); //__dirname = directory path to where the server was started
 
 //Set security HTTP headers
