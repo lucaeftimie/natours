@@ -1,3 +1,6 @@
 node_modules/
 *.env
 .cache/
+extra.txt
+twillio recovery code.png
+.DS_STORE
