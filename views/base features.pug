@@ -1,0 +1,19 @@
+doctype html
+html 
+  head 
+    //- this is a template literal in pug
+    title Natours | #{tour} 
+    link(rel='stylesheet' href='css/style.css')
+    link(rel='shorcut icon' type='image/png' href='img/favicon.png')
+
+  body
+    //- javascript code
+    h1= tour
+    h2= user.toUpperCase()
+    //- creates an html commnect
+    // h1 The Park Camper
+
+    - const x = 9  //- unbufferred code
+    h2= 2*x
+
+    p This is just some text

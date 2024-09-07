@@ -1,0 +1,34 @@
+API SIDE
+
+1) user can only review a tour that they booked
+
+2) nested booking routes /tours/:id/bookings
+					  /users/:id/bookings
+					  
+3)add "participants" and "soldOut" field to each date
+=> date becomes an instance of the tour
+when a user books they need to select one of the dates
+a new booking will increase the number of participants in the date until it is booked out ( participats > maxGroupSize)
+So, when a user wants to book, you need to check if tour on the selected date is still available
+
+3)implement advanced authentification features
+	confirm user email
+	keep user logged in with refresh tokens
+	two-factor-authentication
+	
+
+WEBSITE SIDE
+
+1) sign up page
+
+2) on the tour detail page, if a user has taken a tour, allow them to add a review drieclty on the website. 
+   Implement a form for this
+   
+3)Hide entire booking section on the tour detail page if current user has already booked the tour
+  Prevent duplicate bookings on the model - on the back-end
+  
+3)Implement like tour functionality + favorites page
+4)On the user account page, implement the "My reviews" page, where all reviews are displayed, and a user can edit them.
+  react - use natours api
+  
+5)for 'admin': implement the "manage" pages for CRUD tours, users, reviews, and bookings
