@@ -9,7 +9,7 @@ const cookieParser = require('cookie-parser');
 const hpp = require('hpp');
 const compression = require('compression');
 const cors = require('cors');
-//App Module - start txpress app
+//App Module - start express app
 const app = express();
 const path = require('path');
 
@@ -28,6 +28,8 @@ const userRouter = require('./routes/userRoutes');
 const reviewRouter = require('./routes/reviewRoutes');
 const bookingRouter = require('./routes/bookingRoutes');
 const viewRouter = require('./routes/viewRoutes');
+
+const bookingController = require('./controllers/bookingController');
 
 // 1)GLOBAL  MIDDLEWARES
 //Implement CORS
@@ -111,6 +113,12 @@ const limiter = rateLimit({
 });
 
 app.use('/api', limiter);
+
+app.post(
+  '/webhook-checkout',
+  express.raw({ type: 'application/json' }),
+  bookingController.webhookCheckout
+);
 
 app.use(express.json());
 
